@@ -28,7 +28,22 @@ class Calendar
   write_answer = gets.chomp
   case write_answer
   when 'y' 
-    puts 'OKです。'
+    puts '今日は何しましたか？'
+    do_answer = gets.chomp
+    if !File.exist?('memory.txt')
+      File.open('memory.txt', 'w') do |file|
+        file.puts("#{year}年#{mon}月#{day}日は何をしましたか: #{do_answer}")
+      end
+    else
+      File.open('memory.txt', 'a') do |file|
+        file.puts("#{year}年#{mon}月#{day}日は何をしましたか: #{do_answer}")
+      end
+    end
+    puts 'どうでしたか？'
+    how_answer = gets.chomp
+    File.open('memory.txt', 'a') do |file|
+      file.puts("どうでしたか: #{how_answer}")
+    end
   when 'n'
     puts '明日も待っています。'
   else
