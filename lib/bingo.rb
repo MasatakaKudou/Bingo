@@ -40,12 +40,22 @@ my_bingo = Bingo.make_bingo
 puts 'こちらがあなたのビンゴカードです。'
 puts my_bingo
 print 'ビンゴしますか？(y/n): '
-answer = gets.chomp 
-case answer
+start_answer = gets.chomp 
+case start_answer
 when 'y'
-  15.times do
+  20.times do
     Bingo.delete_number(my_bingo)
     puts my_bingo
+  end
+  print 'ビンゴしましたか？(y/n): '
+  bingo_answer = gets.chomp
+  case bingo_answer
+  when 'y'
+    puts 'おめでとうございます！'
+  when 'n'
+    puts "ドンマイです！\nまた来てください。"
+  else
+    puts 'yかnで答えてください。'
   end
 when 'n'
   puts 'また来てください。'
