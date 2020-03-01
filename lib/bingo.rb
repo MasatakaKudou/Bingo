@@ -43,8 +43,10 @@ print 'ビンゴしますか？(y/n): '
 answer = gets.chomp 
 case answer
 when 'y'
-  Bingo.delete_number(my_bingo)
-  puts my_bingo
+  15.times do
+    Bingo.delete_number(my_bingo)
+    puts my_bingo
+  end
 when 'n'
   puts 'また来てください。'
 else
